@@ -75,7 +75,7 @@ public class _1_connectDemo {
     @Test
     public void T4() throws Exception {
         // 通过类的加载器获取文件的输入流
-        InputStream in = _1_connectDemo.class.getClassLoader().getResourceAsStream("jdbc.properties");
+        InputStream in = ClassLoader.getSystemClassLoader().getResourceAsStream("jdbc.properties");
         Properties properties = new Properties();
         properties.load(in);
 
