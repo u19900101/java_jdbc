@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/20_12_21_idea.iml" filepath="$PROJECT_DIR$/20_12_21_idea.iml" />
       <module fileurl="file://$PROJECT_DIR$/_1_webdemo/_1_webdemo.iml" filepath="$PROJECT_DIR$/_1_webdemo/_1_webdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_2_demomaven/_2_demomaven.iml" filepath="$PROJECT_DIR$/_2_demomaven/_2_demomaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_3_jdbc/_3_jdbc.iml" filepath="$PROJECT_DIR$/_3_jdbc/_3_jdbc.iml" />
     </modules>
   </component>
 </project>
