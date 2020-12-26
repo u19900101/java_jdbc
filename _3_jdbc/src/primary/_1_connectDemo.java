@@ -1,3 +1,5 @@
+package primary;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class _1_connectDemo {
     public void T1() throws SQLException {
         Driver driver = new com.mysql.jdbc.Driver();
 
-        String url = "jdbc:mysql://localhost:3306/myemployees";
+        String url = "jdbc:mysql://localhost:3306/test";
 
         Properties info = new Properties();
         info.setProperty("user", "root");

@@ -1,4 +1,7 @@
+package primary;
+
 import org.junit.jupiter.api.Test;
+import util.JDBCUtil;
 
 import java.lang.reflect.Field;
 import java.sql.*;

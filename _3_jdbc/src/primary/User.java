@@ -1,3 +1,5 @@
+package primary;
+
 /**
  * @author lppppp
  * @create 2020-12-25 13:43
@@ -17,7 +19,7 @@ public class User {
 
         @Override
         public String toString() {
-            return "User [user=" + username + ", password=" + password + "]";
+            return "primary.User [user=" + username + ", password=" + password + "]";
         }
 
         public String getUser() {

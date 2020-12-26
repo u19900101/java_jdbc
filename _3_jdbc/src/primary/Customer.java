@@ -1,3 +1,5 @@
+package primary;
+
 import java.sql.Date;
 
 /**
@@ -12,7 +14,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "primary.Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

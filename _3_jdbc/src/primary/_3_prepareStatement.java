@@ -1,4 +1,7 @@
+package primary;
+
 import org.junit.jupiter.api.Test;
+import util.JDBCUtil;
 
 import java.io.IOException;
 import java.sql.Connection;

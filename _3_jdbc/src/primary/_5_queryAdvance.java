@@ -1,7 +1,9 @@
+package primary;
+
 import org.junit.jupiter.api.Test;
+import util.JDBCUtil;
 
 import java.lang.reflect.Field;
-import java.net.SocketTimeoutException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -38,7 +40,7 @@ public class _5_queryAdvance {
             if(resultSet.next()){
                 // 根据查询到的结果 动态的将结果封装到对象中
                 ResultSetMetaData metaData = resultSet.getMetaData();
-//                Customer customer = new Customer();
+//                primary.Customer customer = new primary.Customer();
                 T t = clazz.newInstance();
                 for (int i = 0; i < metaData.getColumnCount(); i++) {
                     // 用列名 对对象中的同名字段赋值
@@ -85,7 +87,7 @@ public class _5_queryAdvance {
             while (resultSet.next()){
                 // 根据查询到的结果 动态的将结果封装到对象中
                 ResultSetMetaData metaData = resultSet.getMetaData();
-//                Customer customer = new Customer();
+//                primary.Customer customer = new primary.Customer();
                 T t = clazz.newInstance();
                 for (int i = 0; i < metaData.getColumnCount(); i++) {
                     // 用列名 对对象中的同名字段赋值

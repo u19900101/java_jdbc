@@ -1,3 +1,5 @@
+package primary;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -5,8 +7,6 @@ import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
-
-import static javafx.scene.input.KeyCode.T;
 
 /**
  * @author lppppp
@@ -28,7 +28,7 @@ public class _2_sqlDemo {
         // 1' or
         // =1 or '1' = '1
         User user = _5_queryAdvance.getCustomerQuery(User.class, sql,username,password);
-        //Object o = get(sql,User.class);
+        //Object o = get(sql,primary.User.class);
         if (user != null){
             System.out.println("succeed..");
         }else{
