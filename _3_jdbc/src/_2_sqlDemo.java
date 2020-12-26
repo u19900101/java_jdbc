@@ -6,6 +6,8 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 
+import static javafx.scene.input.KeyCode.T;
+
 /**
  * @author lppppp
  * @create 2020-12-25 13:29
@@ -14,7 +16,7 @@ import java.util.Scanner;
  * 操作和访问数据库
  */
 public class _2_sqlDemo {
-
+    // 演示解决注入问题
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入用户名：");
@@ -22,12 +24,12 @@ public class _2_sqlDemo {
         System.out.println("请输入密码：");
         String password = scanner.nextLine();
 
-        String sql = "select * from user where username = '"+username
-                +"' and password = '"+password+"'";
+        String sql = "select name username,password from user where name = ? and password = ?";
         // 1' or
         // =1 or '1' = '1
-        Object o = get(sql,User.class);
-        if (o != null){
+        User user = _5_queryAdvance.getCustomerQuery(User.class, sql,username,password);
+        //Object o = get(sql,User.class);
+        if (user != null){
             System.out.println("succeed..");
         }else{
             System.out.println("failed sign in");

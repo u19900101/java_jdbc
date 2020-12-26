@@ -93,7 +93,7 @@ public class _3_prepareStatement {
 //        Object []obs = {"王小二",20};
         // 演示关键字 要加着重符号
         String sql = "UPDATE `order`  SET order_name = ? WHERE order_id = ?";
-        update(sql,"kk",4);
+        System.out.println(update(sql, "kkffkk", 4));
     }
     /* delete 操作*/
     @Test
@@ -102,7 +102,7 @@ public class _3_prepareStatement {
         update(sql,21);
     }
 
-    public void update(String sql,Object ...args){
+    public int update(String sql,Object ...args){
         Connection connection = null;
         PreparedStatement ps = null;
         try {
@@ -112,11 +112,13 @@ public class _3_prepareStatement {
             for (int i = 0; i < args.length; i++) {
                 ps.setObject(i+1,args[i]);
             }
-            ps.execute();
+            //ps.execute(); //返回值为 true 表示 为 查询语句  为 false则为 增删改语句
+            return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             JDBCUtil.closeResource(ps,connection);
         }
+        return 0;
     }
 }

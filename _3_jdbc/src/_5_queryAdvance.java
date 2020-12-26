@@ -23,7 +23,7 @@ public class _5_queryAdvance {
         User user = getCustomerQuery(User.class, sql2, 2);
         System.out.println(user);
     }
-    public <T>T getCustomerQuery(Class<T> clazz,String sql,Object ...args){
+    public static <T>T getCustomerQuery(Class<T> clazz,String sql,Object ...args){
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet resultSet = null;
