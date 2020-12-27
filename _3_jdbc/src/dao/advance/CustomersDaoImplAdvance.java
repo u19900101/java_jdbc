@@ -1,20 +1,23 @@
-package dao;
+package dao.advance;
 
+import dao.CustomersDaoImpl;
 import primary.Customer;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @author lppppp
- * @create 2020-12-27 16:27
+ * @create 2020-12-27 17:32
+ * 升级优化 省去类的获取
+ *
+ * 要写全  BaseDAOAdvance<Customer>  才能利用反射 得到类
  */
-public class CustomersDaoImpl extends BaseDAO<Customer> implements CustomersDAO {
+public class CustomersDaoImplAdvance extends
+        BaseDAOAdvance<Customer> implements CustomersDAOAdvance{
+
     @Override
     public void insert(Connection conn, Customer customer){
         String sql = "insert into customers (name,email,birth) values (?,?,?)";
@@ -27,35 +30,36 @@ public class CustomersDaoImpl extends BaseDAO<Customer> implements CustomersDAO 
         update(conn,sql,id);
     }
 
-    @Override
     public void update(Connection conn, Customer customer) {
         String sql = "update customers set name = ?,email = ?,birth = ? where id = ?";
         update(conn,sql,customer.getName(),customer.getEmail(),customer.getBirth(),customer.getId());
     }
 
+
+    @Override
+    public Long getCount(Connection conn) {
+        String sql = "select count(*) from customers";
+        return (Long) getValue(conn, sql);
+    }
+
+    @Override
+    public Date getMaxBirth(Connection conn) {
+        String sql = "select max(birth) from customers";
+        return (Date) getValue(conn, sql);
+    }
+
     @Override
     public Customer getById(Connection conn, int id) {
         String sql = "select id,name,email,birth from customers where id = ?";
-        Customer customer = getInsance(conn, Customer.class, sql, id);
+        Customer customer = (Customer) getInsance(conn,sql, id);
         return customer;
     }
 
     @Override
     public List<Customer> getAll(Connection conn) {
         String sql = "select id,name,email,birth from customers";
-        ArrayList<Customer> customerArrayList = getInsanceList(conn, Customer.class, sql);
+        ArrayList<Customer> customerArrayList = getInsanceList(conn,sql);
         return customerArrayList;
     }
 
-    @Override
-    public Long getCount(Connection conn) {
-        String sql = "select count(*) from customers";
-        return getValue(conn, sql);
-    }
-
-    @Override
-    public Date getMaxBirth(Connection conn) {
-        String sql = "select max(birth) from customers";
-        return getValue(conn, sql);
-    }
 }
