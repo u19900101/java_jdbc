@@ -1,5 +1,9 @@
 package util;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.junit.jupiter.api.Test;
+
+import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
@@ -10,7 +14,18 @@ import java.util.Properties;
  */
 public class JDBCUtil {
 
+    static ComboPooledDataSource cpds = new ComboPooledDataSource("helloc3p0");
+
     static public Connection getConn(){
+        try {
+            return cpds.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /*static public Connection getConn(){
         Connection connection = null;
         try {
             Properties properties = new Properties();
@@ -25,7 +40,7 @@ public class JDBCUtil {
             e.printStackTrace();
         }
         return  connection;
-    }
+    }*/
 
     static public void closeResource(PreparedStatement ps,Connection connection){
         try {
