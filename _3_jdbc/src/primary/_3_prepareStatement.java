@@ -105,7 +105,7 @@ public class _3_prepareStatement {
         update(sql,21);
     }
 
-    public int update(String sql,Object ...args){
+    public static int update(String sql, Object... args){
         Connection connection = null;
         PreparedStatement ps = null;
         try {
