@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function onclickFun() {
+            // 表示要求字符串中，是否包含字母e
+            // var patt = new RegExp("e");
+            // var patt = /e/; // 也是正则表达式对象
+            // 表示要求字符串中，是否包含字母a或b或c
+            // var patt = /[abc]/;
+            // 表示要求字符串，是否包含小写字母
+            // var patt = /[a-z]/;
+            // 表示要求字符串，是否包含任意大写字母
+            // var patt = /[A-Z]/;
+            // 表示要求字符串，是否包含任意数字
+            // var patt = /[0-9]/;
+            // 表示要求字符串，是否包含字母，数字，下划线
+            // var patt = /\w/;
+            // 表示要求 字符串中是否包含至少一个a
+            // var patt = /a+/;
+            // 表示要求 字符串中是否 *包含* 零个 或 多个a
+            // var patt = /a*/;
+            // 表示要求 字符串是否包含一个或零个a
+            // var patt = /a?/;
+            // 表示要求 字符串是否包含连续三个a
+            // var patt = /a{3}/;
+            // 表示要求 字符串是否包 至少3个连续的a，最多5个连续的a
+            // var patt = /a{3,5}/;
+            // 表示要求 字符串是否包 至少3个连续的a，
+            // var patt = /a{3,}/;
+            // 表示要求 字符串必须以a结尾
+            // var patt = /a$/;
+            // 表示要求 字符串必须以a打头
+            // var patt = /^a/;
+
+
+            // 要求字符串，从头到尾都必须完全匹配
+            var patt = /^\w{3,5}$/;
+
+            var usernameObj = document.getElementById("username");
+            var usernameText = usernameObj.value;
+            // 如何 验证 字符串，符合某个规则 ，需要使用正则表达式技术
+            // var patt = /^\w{5,12}$/;
+            var usernameSpan = document.getElementById("usernameSpan");
+            /*
+            *  test()方法用于测试某个字符串，是不是匹配我的规则 ，
+            *  匹配就返回true。不匹配就返回false.
+            * */
+
+            if (patt.test(usernameText)) {
+                // innerHTML 表示其中的内容
+                // usernameSpan.innerHTML = "用户名合法！";
+                // 修改 span中的内容为 图片
+                usernameSpan.innerHTML = " <img src=\"right.png\" width=\"18\" border=\"1px\">\n";
+
+            } else {
+                // usernameSpan.innerHTML = "用户名不合法！";
+                usernameSpan.innerHTML = " <img src=\"wrong.png\" width=\"18\" border=\"1px\">\n";
+            }
+        }
+    </script>
+</head>
+<body>
+    用户名：<input type="text" id="username" value="wzg"/>
+    <span id="usernameSpan" style="color:red;">
+        </span>
+    <button onclick="onclickFun()">较验</button>
+</body>
+</html>
