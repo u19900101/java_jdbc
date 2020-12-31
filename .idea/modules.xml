@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/2_javaScript/2_javaScript.iml" filepath="$PROJECT_DIR$/2_javaScript/2_javaScript.iml" />
       <module fileurl="file://$PROJECT_DIR$/3_jQuery/3_jQuery.iml" filepath="$PROJECT_DIR$/3_jQuery/3_jQuery.iml" />
       <module fileurl="file://$PROJECT_DIR$/4_javaweb.iml" filepath="$PROJECT_DIR$/4_javaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4_xml/4_xml.iml" filepath="$PROJECT_DIR$/4_xml/4_xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5_web/5_web.iml" filepath="$PROJECT_DIR$/5_web/5_web.iml" />
     </modules>
   </component>
 </project>
