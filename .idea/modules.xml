@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/4_javaweb.iml" filepath="$PROJECT_DIR$/4_javaweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/4_xml/4_xml.iml" filepath="$PROJECT_DIR$/4_xml/4_xml.iml" />
       <module fileurl="file://$PROJECT_DIR$/5_web/5_web.iml" filepath="$PROJECT_DIR$/5_web/5_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6_books/6_books.iml" filepath="$PROJECT_DIR$/6_books/6_books.iml" />
     </modules>
   </component>
 </project>
