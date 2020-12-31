@@ -65,5 +65,56 @@
         <url-pattern>/h4</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>_5_requestAPIServlet</servlet-name>
+        <servlet-class>_5_requestAPIServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>_5_requestAPIServlet</servlet-name>
+        <url-pattern>/h5</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>_6_ServletDispatcher1</servlet-name>
+        <servlet-class>_6_ServletDispatcher1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>_6_ServletDispatcher1</servlet-name>
+        <url-pattern>/h6</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>_6_ServletDispatcher2</servlet-name>
+        <servlet-class>_6_ServletDispatcher2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>_6_ServletDispatcher2</servlet-name>
+        <url-pattern>/_6_ServletDispatcher2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>_7_ServletRedirect1</servlet-name>
+        <servlet-class>_7_ServletRedirect1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>_7_ServletRedirect1</servlet-name>
+        <url-pattern>/h71</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>_7_ServletRedirect2</servlet-name>
+        <servlet-class>_7_ServletRedirect2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>_7_ServletRedirect2</servlet-name>
+        <url-pattern>/h72</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
