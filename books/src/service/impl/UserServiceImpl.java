@@ -12,22 +12,26 @@ public class UserServiceImpl implements UserService {
 
     UserDaoImpl userDaoImpl = new UserDaoImpl();
     @Override
-    public void register(User user) {
+    public boolean register(User user) {
         int i = userDaoImpl.saveUser(user);
         if(i > 0){
             System.out.println("register succeed...");
+            return true;
         }else {
             System.out.println("register failed...");
+            return false;
         }
     }
 
     @Override
-    public void login(User user) {
+    public boolean login(User user) {
         User userByNameAndPass = userDaoImpl.getUserByNameAndPass(user.getUsername(), user.getPassword());
         if(userByNameAndPass!= null){
             System.out.println("login succeed...");
+            return true;
         }else {
             System.out.println("login failed...");
+            return false;
         }
     }
 

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="6_jsp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/6_jsp_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="6_jsp/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="6_jsp" />
+          <element id="dir-copy" path="D:/java/apache-tomcat-9.0.8-src" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

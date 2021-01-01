@@ -7,8 +7,16 @@
         <servlet-name>registServlet</servlet-name>
         <servlet-class>web.registServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>web.loginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registServlet</servlet-name>
         <url-pattern>/registServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,14 +1,12 @@
 package test;
 
-import com.alibaba.druid.util.JdbcUtils;
 import dao.BaseDao;
-import org.apache.commons.dbutils.DbUtils;
+
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.junit.Test;
 import pojo.User;
 import utils.DBUtils;
-
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
