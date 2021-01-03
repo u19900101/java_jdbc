@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * @author lppppp
@@ -21,10 +23,15 @@ public class loginServlet extends HttpServlet {
         boolean login = userService.login(new User(username, password));
         if(login){
             // login succeed
-            req.getRequestDispatcher("/pages/user/login_success.html").forward(req,res);
+            req.setAttribute("msg","login succeed");
+            req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req,res);
         }else {
             // failed
-            req.getRequestDispatcher("/pages/user/login.html").forward(req,res);
+            req.setAttribute("msg","用户名或密码不存在");
+            req.setAttribute("username", URLEncoder.encode(username, "UTF-8"));
+
+            req.setAttribute("password",password);
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req,res);
         }
     }
 }

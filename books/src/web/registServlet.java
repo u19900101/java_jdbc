@@ -22,13 +22,24 @@ public class registServlet extends HttpServlet {
         String password = req.getParameter("password");
         String repwd = req.getParameter("repwd");
         String email = req.getParameter("email");
+        String code = req.getParameter("code");
+
+        req.setAttribute("username",username);
+        req.setAttribute("password",password);
+        req.setAttribute("repwd",repwd);
+        req.setAttribute("email",email);
+        req.setAttribute("email",code);
+
 
         boolean existUsername = userService.existUsername(username);
         if(existUsername){
-            req.getRequestDispatcher("/pages/user/regist.html").forward(req,res);
+            // 用户名已存在
+            req.setAttribute("msg","用户名已存在");
+            req.getRequestDispatcher("/pages/user/regist.jsp").forward(req,res);
         }else {
+            //注册成功
             userService.register(new User(username,password,email));
-            req.getRequestDispatcher("/pages/user/regist_success.html").forward(req,res);
+            req.getRequestDispatcher("/pages/user/regist_success.jsp").forward(req,res);
         }
     }
 
