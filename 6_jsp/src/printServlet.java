@@ -4,8 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-
 /**
  * @author lppppp
  * @create 2021-01-01 9:26
@@ -14,7 +12,6 @@ public class printServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         //org.apache.jasper.runtime.HttpJspBase  httpJspBase;
-
         PrintWriter writer = res.getWriter();
         System.out.println("I am do Get");
         String html = "<!DOCTYPE html>\n" +

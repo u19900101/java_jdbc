@@ -11,4 +11,50 @@
         <servlet-name>printServlet</servlet-name>
         <url-pattern>/printServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showStudentServlet</servlet-name>
+        <servlet-class>showStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showStudentServlet</servlet-name>
+        <url-pattern>/showStudentServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>uploadServlet</servlet-name>
+        <servlet-class>upload.uploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadServlet</servlet-name>
+        <url-pattern>/uploadServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>DownLoad</servlet-name>
+        <servlet-class>upload.DownLoad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownLoad</servlet-name>
+        <url-pattern>/downLoad</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+    <listener>
+        <listener-class>Listener</listener-class>
+    </listener>
+    
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:mysql///test</param-value>
+    </context-param>
 </web-app>
