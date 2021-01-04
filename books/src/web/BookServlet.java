@@ -33,6 +33,7 @@ public class BookServlet extends BaseServlet {
         //此处要用 重定向 不然 在提交页面刷新会再次调用 add 方法数据的二次提交
         // req.getRequestDispatcher("/manage/bookServlet?action=list").forward(req,res);
         // 默认地址为端口号
+
         // request.getContextPath()可以返回当前页面所在的应用的名字;
         res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
     }
