@@ -116,8 +116,8 @@
 								</span>
 							</div>
 							<div class="form">
-								<form action="registServlet" method="post">
-									<input type="hidden" name="action" value="regist">
+								<form action="userServlet" method="post">
+									<input type="hidden" name="action" value="register">
 									<label>用户名称：</label>
 									<input class="itxt" type="text" placeholder="请输入用户名"
 										   value="${requestScope.username}"
