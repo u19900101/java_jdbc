@@ -9,9 +9,10 @@ import java.util.List;
  * @create 2021-01-04 11:18
  */
 public interface BookService {
+
     public int addBook(Book book);
     public int updateBookById(Book book);
-    public int deleteBook(Book book);
+    public int deleteBookById(Integer id);
     public Book queryBookById(Integer id);
     public List<Book> queryBooks();
 }

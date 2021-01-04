@@ -22,9 +22,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public int deleteBook(Book book) {
-        return bookDao.deleteBook(book);
+    public int deleteBookById(Integer id) {
+        return bookDao.deleteBook(id);
     }
+
 
     @Override
     public Book queryBookById(Integer id) {

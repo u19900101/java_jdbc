@@ -39,8 +39,8 @@ public class BookServiceImplTest {
 
     @Test
     public void deleteBook() {
-        book.setId(21);
-        int i = bookService.deleteBook(book);
+
+        int i = bookService.deleteBookById(21);
         System.out.println(i);
     }
 

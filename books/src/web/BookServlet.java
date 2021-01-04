@@ -38,4 +38,13 @@ public class BookServlet extends BaseServlet {
         res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
     }
 
+    protected void delete(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        System.out.println("come into delete ...");
+        String id = req.getParameter("id");
+        int i = bookService.deleteBookById(Integer.parseInt(id));
+        System.out.println("delete " + i);
+        // request.getContextPath()可以返回当前页面所在的应用的名字;
+        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
+    }
+
 }

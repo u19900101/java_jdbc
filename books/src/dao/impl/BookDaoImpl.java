@@ -45,10 +45,10 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     }
 
     @Override
-    public int deleteBook(Book book) {
+    public int deleteBook(Integer id) {
         Connection conn = DBUtils.getConn();
         String sql = "delete from  t_book  where id = ?";
-        int update = baseDao.update(conn, sql,book.getId());
+        int update = baseDao.update(conn, sql,id);
         if(update>0){
             System.out.println(" deleteBook succeed ...");
         }

@@ -38,8 +38,7 @@ public class BookDaoImplTest {
 
     @Test
     public void deleteBook() {
-        book.setId(21);
-        int i = bookDao.deleteBook(book);
+        int i = bookDao.deleteBook(21);
         System.out.println(i);
     }
 

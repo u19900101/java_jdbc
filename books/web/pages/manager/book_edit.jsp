@@ -4,21 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <title>编辑图书</title>
-
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
-
-
 	<style type="text/css">
 	h1 {
 		text-align: center;
 		margin-top: 200px;
 	}
-	
 	h1 a {
 		color:red;
 	}
-	
 	input {
 		text-align: center;
 	}
@@ -28,11 +23,8 @@
 		<div id="header">
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">编辑图书</span>
-
 			<%-- 静态包含 manager管理模块的菜单  --%>
 			<%@include file="/pages/common/manager_menu.jsp"%>
-
-
 		</div>
 		
 		<div id="main">

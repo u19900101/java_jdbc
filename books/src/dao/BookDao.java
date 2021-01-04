@@ -12,7 +12,7 @@ import java.util.List;
 public interface BookDao {
     public int addBook(Book book);
     public int updateBookById(Book book);
-    public int deleteBook(Book book);
+    public int deleteBook(Integer id);
     public Book queryBookById(Integer id);
     public List<Book> queryBooks();
 }
