@@ -28,8 +28,9 @@
 		</div>
 		
 		<div id="main">
-			<form action="/manage/bookServlet" method="get">
-				<input type="hidden" value="add" name="action">
+			<form action="manage/bookServlet" method="get">
+				<input type="hidden" value="${empty requestScope.book?"add":"update"}" name="action">
+				<input type="hidden" value="${requestScope.book.id}" name="id">
 				<table>
 					<tr>
 						<td>名称</td>
@@ -40,11 +41,11 @@
 						<td colspan="2">操作</td>
 					</tr>		
 					<tr>
-						<td><input name="name" type="text" value="时间简史"/></td>
-						<td><input name="price" type="text" value="30.00"/></td>
-						<td><input name="author" type="text" value="霍金"/></td>
-						<td><input name="sales" type="text" value="200"/></td>
-						<td><input name="stock" type="text" value="300"/></td>
+						<td><input name="name" type="text" value="${book.name}"/></td>
+						<td><input name="price" type="text" value="${book.price}"/></td>
+						<td><input name="author" type="text" value="${book.author}"/></td>
+						<td><input name="sales" type="text" value="${book.sales}"/></td>
+						<td><input name="stock" type="text" value="${book.stock}"/></td>
 						<td><input type="submit" value="提交"/></td>
 					</tr>	
 				</table>

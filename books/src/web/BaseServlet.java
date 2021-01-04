@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  */
 public abstract class BaseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        System.out.println("come into BaseServlet do post...");
+        // System.out.println("come into BaseServlet do post...");
         String action = req.getParameter("action");
         // 利用反射改写
         Method method = null;
@@ -27,7 +27,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        System.out.println("come into BaseServlet do get...");
+        // System.out.println("come into BaseServlet do get...");
         doPost(req,res);
     }
 }

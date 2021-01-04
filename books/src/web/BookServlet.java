@@ -5,8 +5,6 @@ import service.impl.BookServiceImpl;
 import utils.WebUtils;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -46,5 +44,28 @@ public class BookServlet extends BaseServlet {
         // request.getContextPath()可以返回当前页面所在的应用的名字;
         res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
     }
+
+
+    protected void update(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        System.out.println("come into update ...");
+        Book book = WebUtils.copyBean(req.getParameterMap(), new Book());
+        int i = bookService.updateBookById(book);
+        System.out.println("update " + i);
+        // request.getContextPath()可以返回当前页面所在的应用的名字;
+        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
+    }
+
+    // 为了传参使用
+    protected void getBook(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        System.out.println("come into getBook ...");
+        String id = req.getParameter("id");
+
+        Book book = bookService.queryBookById(Integer.parseInt(id));
+
+        System.out.println(book);
+        req.setAttribute("book", book);
+        req.getRequestDispatcher("/pages/manager/book_edit.jsp").forward(req, res);
+    }
+
 
 }
