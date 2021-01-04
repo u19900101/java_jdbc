@@ -4,6 +4,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import pojo.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @author lppppp
@@ -11,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class WebUtils {
 
-    public static <T>T copyBean(HttpServletRequest req,T t){
+    public static <T>T copyBean(Map map, T t){
 
         try {
-            BeanUtils.populate(t,req.getParameterMap());
+            BeanUtils.populate(t,map);
         } catch (Exception e) {
             e.printStackTrace();
         }

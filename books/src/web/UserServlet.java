@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
+import java.util.Map;
 
 /**
  * @author lppppp
@@ -48,7 +49,8 @@ public class UserServlet extends BaseServlet {
         String password = req.getParameter("password");
         String email = req.getParameter("email");
        */
-        User user = WebUtils.copyBean(req,new User());
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        User user = WebUtils.copyBean(parameterMap,new User());
 
 
         String repwd = req.getParameter("repwd");
@@ -75,7 +77,7 @@ public class UserServlet extends BaseServlet {
     private void login(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("come into login");
 
-        User user = WebUtils.copyBean(req, new User());
+        User user = WebUtils.copyBean(req.getParameterMap(), new User());
 
        /* String username = req.getParameter("username");
         String password = req.getParameter("password");*/
