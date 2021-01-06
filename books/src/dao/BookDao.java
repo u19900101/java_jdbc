@@ -15,4 +15,6 @@ public interface BookDao {
     public int deleteBook(Integer id);
     public Book queryBookById(Integer id);
     public List<Book> queryBooks();
+    public int getSingleValue();
+    List<Book> getPageList(int begin, int size);
 }

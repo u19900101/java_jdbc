@@ -4,6 +4,7 @@ import dao.BaseDao;
 import dao.BookDao;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Test;
 import pojo.Book;
 import pojo.User;
 import utils.DBUtils;
@@ -71,6 +72,26 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from t_book";
         Connection conn = DBUtils.getConn();
         List<Book> books = baseDao.getInsanceList(conn, sql, new BeanListHandler<>(Book.class));
+        DBUtils.closeResource(conn);
+        return books;
+    }
+
+    @Override
+    public int getSingleValue() {
+        String sql = "select count(*) from t_book";
+        Connection conn = DBUtils.getConn();
+        long singleValue = (Long) baseDao.getSingleValue(conn, sql);
+        DBUtils.closeResource(conn);
+        return (int) singleValue;
+
+    }
+
+
+    @Override
+    public List<Book> getPageList(int begin, int size) {
+        String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from t_book limit ?,?";
+        Connection conn = DBUtils.getConn();
+        List<Book> books = baseDao.getInsanceList(conn, sql, new BeanListHandler<>(Book.class),begin,size);
         DBUtils.closeResource(conn);
         return books;
     }

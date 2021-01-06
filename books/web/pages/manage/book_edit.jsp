@@ -24,13 +24,15 @@
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">编辑图书</span>
 			<%-- 静态包含 manager管理模块的菜单  --%>
-			<%@include file="/pages/common/manager_menu.jsp"%>
+			<%@include file="/pages/common/manage_menu.jsp"%>
 		</div>
 		
 		<div id="main">
 			<form action="manage/bookServlet" method="get">
 				<input type="hidden" value="${empty requestScope.book?"add":"update"}" name="action">
 				<input type="hidden" value="${requestScope.book.id}" name="id">
+				<%-- 之所以不能使用request中的page获取页码数的原因，经过点击修改的链接后，已经不是从list中转发的同一个request--%>
+				<input type="hidden" value="${param.pageNo}" name="pageNo">
 				<table>
 					<tr>
 						<td>名称</td>

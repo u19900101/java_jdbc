@@ -1,6 +1,7 @@
 package service;
 
 import pojo.Book;
+import pojo.Page;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface BookService {
     public int deleteBookById(Integer id);
     public Book queryBookById(Integer id);
     public List<Book> queryBooks();
+    public int getSingleValue();
+
+    Page<Book> getPageList(int pageNo);
 }

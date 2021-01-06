@@ -11,13 +11,12 @@
     <title>4大域对象演示</title>
 </head>
 <body>
-<h1> Scope2 页面</h1>
+<h1> Scope3 页面</h1>
 request : <%= request.getAttribute("key")%><br/>
 pageContext : <%= pageContext.getAttribute("key")%><br/>
 session :<%= session.getAttribute("key")%><br/>
 application :<%= application.getAttribute("key")%><br/>
 
-<% request.getRequestDispatcher("/1_scope/scope3.jsp").forward(request,response);%>
 
 
 </body>

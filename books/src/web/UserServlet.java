@@ -64,7 +64,7 @@ public class UserServlet extends BaseServlet {
         if(existUsername){
             // 用户名已存在
             req.setAttribute("msg","用户名已存在");
-            req.getRequestDispatcher("/pages/user/regist.jsp").forward(req,res);
+            req.getRequestDispatcher("/pages/user/register.jsp").forward(req,res);
         }else {
             //注册成功
             userService.register(user);

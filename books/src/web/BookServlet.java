@@ -1,6 +1,7 @@
 package web;
 
 import pojo.Book;
+import pojo.Page;
 import service.impl.BookServiceImpl;
 import utils.WebUtils;
 
@@ -20,7 +21,7 @@ public class BookServlet extends BaseServlet {
     protected void list(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Book> books = bookService.queryBooks();
         req.setAttribute("books",books);
-        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,res);
+        req.getRequestDispatcher("/pages/manage/book_manage.jsp").forward(req,res);
     }
 
     protected void add(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -33,7 +34,8 @@ public class BookServlet extends BaseServlet {
         // 默认地址为端口号
 
         // request.getContextPath()可以返回当前页面所在的应用的名字;
-        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
+        Page<Book> page = bookService.getPageList(1);
+        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=page&pageNo="+page.getPageTotal());
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -42,7 +44,8 @@ public class BookServlet extends BaseServlet {
         int i = bookService.deleteBookById(Integer.parseInt(id));
         System.out.println("delete " + i);
         // request.getContextPath()可以返回当前页面所在的应用的名字;
-        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
+        int pageNo = Integer.parseInt(req.getParameter("pageNo"));
+        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=page&pageNo="+pageNo);
     }
 
 
@@ -52,7 +55,8 @@ public class BookServlet extends BaseServlet {
         int i = bookService.updateBookById(book);
         System.out.println("update " + i);
         // request.getContextPath()可以返回当前页面所在的应用的名字;
-        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=list");
+        int pageNo = Integer.parseInt(req.getParameter("pageNo"));
+        res.sendRedirect(req.getContextPath()+"/manage/bookServlet?action=page&pageNo="+pageNo);
     }
 
     // 为了传参使用
@@ -61,11 +65,19 @@ public class BookServlet extends BaseServlet {
         String id = req.getParameter("id");
 
         Book book = bookService.queryBookById(Integer.parseInt(id));
-
+        int pageNo = Integer.parseInt(req.getParameter("pageNo"));
         System.out.println(book);
         req.setAttribute("book", book);
-        req.getRequestDispatcher("/pages/manager/book_edit.jsp").forward(req, res);
+        req.getRequestDispatcher("/pages/manage/book_edit.jsp?pageNo="+pageNo).forward(req, res);
     }
 
 
+    // 分页功能
+    protected void page(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int pageNo = Integer.parseInt(req.getParameter("pageNo"));
+        Page<Book> page = bookService.getPageList(pageNo);
+        page.setUrl("manage/bookServlet?action=page");
+        req.setAttribute("page", page);
+        req.getRequestDispatcher("/pages/manage/book_manage.jsp").forward(req,res);
+    }
 }
