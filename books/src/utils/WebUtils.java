@@ -24,4 +24,13 @@ public class WebUtils {
     }
 
 
+    public static int parseInt(String s, int defaultValue) {
+        try {
+            return Integer.parseInt(s);
+        }catch (Exception e){
+            // e.printStackTrace();
+            System.out.println("使用默认值1");
+        }
+        return defaultValue;
+    }
 }

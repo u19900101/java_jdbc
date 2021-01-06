@@ -23,4 +23,13 @@
         <url-pattern>/manage/bookServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ClientServlet</servlet-name>
+        <servlet-class>web.ClientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientServlet</servlet-name>
+        <url-pattern>/client/bookServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%--分页条的开始--%>
 <div id="page_nav">
     <%--大于首页，才显示--%>
@@ -71,15 +70,24 @@
             $("#searchPageBtn").click(function () {
 
                 var pageNo = $("#pn_input").val();
-
-                <%--var pageTotal = ${requestScope.page.pageTotal};--%>
-                <%--alert(pageTotal);--%>
-
+                var pageTotal = ${requestScope.page.pageTotal};
+                // alert(Number(+5));
                 // javaScript语言中提供了一个location地址栏对象
                 // 它有一个属性叫href.它可以获取浏览器地址栏中的地址
                 // href属性可读，可写
-                location.href = "${pageScope.basePath}${ requestScope.page.url }&pageNo=" + pageNo;
-
+                if($.isNumeric(pageNo)){
+                    //强转  排除 +5  这种bug
+                    pageNo = Number(pageNo);
+                    if(pageNo<=pageTotal&&pageNo>0){
+                        location.href = "${pageScope.basePath}${ requestScope.page.url }&pageNo=" + pageNo;
+                    }else {
+                        alert("页码输入错误,请从新输入");
+                    }
+                }
+                else {
+                    alert("页码输入错误,请从新输入");
+                }
+                $("#pn_input").val(${requestScope.page.pageNo});
             });
         });
 
@@ -87,5 +95,3 @@
 
 </div>
 <%--分页条的结束--%>
-
-

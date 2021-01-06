@@ -17,4 +17,8 @@ public interface BookDao {
     public List<Book> queryBooks();
     public int getSingleValue();
     List<Book> getPageList(int begin, int size);
+
+    int getCountByPrice(int min, int max);
+
+    List<Book> getPageListByPrice(int min, int max, int begin, int size);
 }

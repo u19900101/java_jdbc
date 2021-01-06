@@ -96,5 +96,22 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         return books;
     }
 
+    @Override
+    public int getCountByPrice(int min, int max) {
+        String sql = "select count(*) from t_book where price between ? and ?";
+        Connection conn = DBUtils.getConn();
+        long singleValue = (Long) baseDao.getSingleValue(conn, sql,min,max);
+        DBUtils.closeResource(conn);
+        return (int) singleValue;
+    }
 
+    @Override
+    public List<Book> getPageListByPrice(int min, int max, int begin, int size) {
+        String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from " +
+                "t_book where price between ? and ? order by price limit ?,?";
+        Connection conn = DBUtils.getConn();
+        List<Book> books = baseDao.getInsanceList(conn, sql, new BeanListHandler<>(Book.class),min,max,begin,size);
+        DBUtils.closeResource(conn);
+        return books;
+    }
 }

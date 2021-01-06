@@ -19,4 +19,6 @@ public interface BookService {
     public int getSingleValue();
 
     Page<Book> getPageList(int pageNo);
+
+    Page<Book> getPageListByPrice(int pageNo, int max, int min);
 }
