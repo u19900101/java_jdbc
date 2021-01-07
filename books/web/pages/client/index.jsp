@@ -32,9 +32,46 @@
                 价格：<input id="min" type="text" name="min" value="${requestScope.min}"> 元 -
                 <input id="max" type="text" name="max" value="${requestScope.max}"> 元
                 <input type="hidden" value="queryByPrice" name="action">
-                <input type="submit" value="查询" />
+                <input type="submit" value="查询" id = "searchPriceBtn"/>
             </form>
         </div>
+        <script type="text/javascript">
+            $(function () {
+                // 跳到指定的页码
+                $("#searchPriceBtn").click(function () {
+                    var min = $("#min").val();
+                    var max = $("#max").val();
+                    alert(min);
+                    alert(max);
+                    if(""==min){
+                        min = 0;
+                    }
+                    if(""==max){
+                        max = 1000000000;
+                    }
+                    if($.isNumeric(min)&&$.isNumeric(max)){
+                        min = Number(min);
+                        max = Number(max);
+                        if(min>max){
+                            var a = min;
+                            min = max;
+                            max = a;
+                            $("#min").val(min);
+                            $("#max").val(max);
+                        }
+                    }
+                    else {
+                        alert("数字输入错误,请从新输入");
+                        if($.isNumeric(min)){
+                            $("#min").val(Number(min));
+                        }
+                        if($.isNumeric(max)){
+                            $("#max").val(Number(max));
+                        }
+                    }
+                });
+            });
+        </script>
         <div style="text-align: center">
             <span>您的购物车中有3件商品</span>
             <div>
