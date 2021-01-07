@@ -1,7 +1,10 @@
 package web;
 
 import org.apache.commons.beanutils.BeanUtils;
+import pojo.Book;
+import pojo.Page;
 import pojo.User;
+import service.impl.BookServiceImpl;
 import service.impl.UserServiceImpl;
 import utils.WebUtils;
 
@@ -14,6 +17,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.util.Map;
+
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
 /**
  * @author lppppp
@@ -60,19 +65,37 @@ public class UserServlet extends BaseServlet {
         req.setAttribute("repwd",repwd);
         req.setAttribute("email",user.getEmail());
         req.setAttribute("code",code);
+
+        /*防止用户重复提交*/
+        //获取session
+        String token = (String)req.getSession().getAttribute(KAPTCHA_SESSION_KEY);
+        // 将session中的该值置为null
+        // req.getSession().setAttribute(KAPTCHA_SESSION_KEY,null);
+        req.getSession().removeAttribute(KAPTCHA_SESSION_KEY);
+        //比较验证码
         boolean existUsername = userService.existUsername(user.getUsername());
-        if(existUsername){
-            // 用户名已存在
-            req.setAttribute("msg","用户名已存在");
-            req.getRequestDispatcher("/pages/user/register.jsp").forward(req,res);
+        if(token!=null && token.equalsIgnoreCase(code)){
+            if(existUsername){
+                // 用户名已存在
+                req.setAttribute("msg","用户名已存在");
+                req.getRequestDispatcher("/pages/user/register.jsp").forward(req,res);
+            }else {
+                //注册成功
+                userService.register(user);
+                req.getRequestDispatcher("/pages/user/regist_success.jsp").forward(req,res);
+            }
         }else {
-            //注册成功
-            userService.register(user);
-            req.getRequestDispatcher("/pages/user/regist_success.jsp").forward(req,res);
+            req.setAttribute("msg","验证码有误，请重新输入");
+            req.getRequestDispatcher("/pages/user/register.jsp").forward(req,res);
         }
+
     }
 
-
+    /* 注销*/
+    private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getSession().invalidate();
+        res.sendRedirect("index.jsp");
+    }
 
     private void login(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("come into login");
@@ -85,6 +108,7 @@ public class UserServlet extends BaseServlet {
         if(login){
             // login succeed
             req.setAttribute("msg","login succeed");
+            req.getSession().setAttribute("user",user);
             req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req,res);
         }else {
             // failed

@@ -84,6 +84,12 @@
 
 				});
 
+				// 给点击验证码图片绑定事件
+				$("#vcode").click(function () {
+					// alert(this.src);
+					// this.src = "kaptchaServlet.jpg?"+new Date();
+					this.src = "kaptchaServlet.jpg";
+				})
 			});
 
 		</script>
@@ -143,10 +149,9 @@
 									<br />
 									<br />
 									<label>验证码：</label>
-									<input class="itxt" type="text" name="code" style="width: 150px;" id="code"
-										   value="${requestScope.code}"
-									/>
-									<img alt="" src="static/img/code.bmp" style="float: right; margin-right: 40px">
+									<input class="itxt" type="text" name="code" style="width: 80px;" id="code"
+										   value="${requestScope.code}"/>
+									<img id = "vcode" alt="" src="kaptchaServlet.jpg" style="float: right; margin-right: 40px; width: 110px; height: 30px;">
 									<br />
 									<br />
 									<input type="submit" value="注册" id="sub_btn" />

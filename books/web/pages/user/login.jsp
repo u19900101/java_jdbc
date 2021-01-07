@@ -43,6 +43,7 @@
 									<input class="itxt" type="text" placeholder="请输入用户名"
 										   autocomplete="off" tabindex="1" name="username"
 										   value="${requestScope.username}" />
+									<%--想在框里输入中文 测试未果--%>
 									<%--<% String s = (String) request.getAttribute("username");
 										String encode = URLEncoder.encode(s, "UTF-8");
 									%>
@@ -51,7 +52,7 @@
 									<%= encode%>
 									<hr>
 									<%= URLDecoder.decode(encode, "GBK")%>--%>
-									<hr>
+
 									<%--
 									<%= URLDecoder.decode((String) request.getAttribute("username"), "UTF-8")%>
 									--%>
