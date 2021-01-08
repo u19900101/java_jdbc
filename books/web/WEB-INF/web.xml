@@ -3,6 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>ManageFilter</filter-name>
+        <filter-class>filter.ManageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManageFilter</filter-name>
+        <url-pattern>/manage/*</url-pattern>
+        <url-pattern>/pages/manage/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
