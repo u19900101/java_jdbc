@@ -7,7 +7,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="6_jsp" />
           <element id="dir-copy" path="D:/java/apache-tomcat-9.0.8-src" />
-          <element id="module-output" name="5_web" />
+          <element id="module-output" name="5_servlet" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="taglibs-standard-impl-1.2.1" module-name="6_jsp" />

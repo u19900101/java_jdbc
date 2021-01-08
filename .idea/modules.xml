@@ -7,9 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/3_jQuery/3_jQuery.iml" filepath="$PROJECT_DIR$/3_jQuery/3_jQuery.iml" />
       <module fileurl="file://$PROJECT_DIR$/4_javaweb.iml" filepath="$PROJECT_DIR$/4_javaweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/4_xml/4_xml.iml" filepath="$PROJECT_DIR$/4_xml/4_xml.iml" />
-      <module fileurl="file://$PROJECT_DIR$/5_web/5_web.iml" filepath="$PROJECT_DIR$/5_web/5_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5_servlet/5_servlet.iml" filepath="$PROJECT_DIR$/5_servlet/5_servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/6_jsp/6_jsp.iml" filepath="$PROJECT_DIR$/6_jsp/6_jsp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/7_cookie/7_cookie.iml" filepath="$PROJECT_DIR$/7_cookie/7_cookie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" filepath="$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/8_filter/8_filter.iml" filepath="$PROJECT_DIR$/8_filter/8_filter.iml" />
       <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
     </modules>
   </component>
