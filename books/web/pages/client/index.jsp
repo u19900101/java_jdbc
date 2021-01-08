@@ -82,6 +82,17 @@
                         }
                     }
                 });
+                $("button.cartBtn").click(function () {
+                    var bookId = $(this).attr("bookId");
+                    /**
+                     * 在事件响应的function函数 中，有一个this对象，这个this对象，是当前正在响应事件的dom对象
+                     * @type {jQuery}
+                     */
+                    // alert(bookId);
+                    location.href = "client/cartServlet?action=addItem&id="+bookId;
+                    /*此处不能使用属性进行取值，因为循环后相同属性的很多*/
+                    // location.href = "client/cartServlet?action=addItem"+$("#cartBtn").val();
+                });
             });
         </script>
         <div style="text-align: center">
@@ -117,7 +128,7 @@
                         <span class="sp2">${book.stock}</span>
                     </div>
                     <div class="book_add">
-                        <button>加入购物车</button>
+                        <button class="cartBtn" bookId="${book.id}" >加入购物车</button>
                     </div>
                 </div>
             </div>

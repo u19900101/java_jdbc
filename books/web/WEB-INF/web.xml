@@ -43,4 +43,13 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>web.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/client/cartServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
