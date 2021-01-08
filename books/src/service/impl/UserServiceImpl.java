@@ -24,15 +24,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean login(User user) {
+    public User login(User user) {
         User userByNameAndPass = userDaoImpl.getUserByNameAndPass(user.getUsername(), user.getPassword());
         if(userByNameAndPass!= null){
             System.out.println("login succeed...");
-            return true;
+            return userByNameAndPass;
         }else {
             System.out.println("login failed...");
-            return false;
         }
+        return null;
     }
 
     @Override

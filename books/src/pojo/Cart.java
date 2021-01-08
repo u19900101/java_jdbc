@@ -12,7 +12,7 @@ public class Cart {
 //    private BigDecimal totalPrice;
 
     /**
-     * key是商品编号，
+     * key    是商品编号，
      * value，是商品信息
      */
     private Map<Integer,CartItem> items = new LinkedHashMap<Integer,CartItem>();

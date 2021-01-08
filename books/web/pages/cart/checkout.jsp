@@ -7,8 +7,6 @@
 
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
-
-
 	<style type="text/css">
 	h1 {
 		text-align: center;
@@ -17,20 +15,17 @@
 </style>
 </head>
 <body>
-	
 	<div id="header">
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">结算</span>
 
 		<%--静态包含，登录 成功之后的菜单 --%>
 		<%@ include file="/pages/common/login_success_menu.jsp"%>
-
-
 	</div>
 	
 	<div id="main">
 		
-		<h1>你的订单已结算，订单号为2937474382928484747</h1>
+		<h1>你的订单已结算，订单号为${sessionScope.orderId}</h1>
 		
 	
 	</div>

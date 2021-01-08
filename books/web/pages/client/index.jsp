@@ -142,7 +142,7 @@
                     </div>
                     <div class="book_amount">
                         <span class="sp1">库存:</span>
-                        <span class="sp2">${book.stock}</span>
+                        <span class="book_amount">${book.stock}</span>
                     </div>
                     <div class="book_add">
                         <button class="cartBtn" bookId="${book.id}" >加入购物车</button>

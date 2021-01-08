@@ -20,8 +20,8 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        boolean login = userService.login(new User(username, password));
-        if(login){
+        User login = userService.login(new User(username, password));
+        if(login!=null){
             // login succeed
             req.setAttribute("msg","login succeed");
             req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req,res);

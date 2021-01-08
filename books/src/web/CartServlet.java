@@ -17,7 +17,7 @@ import java.util.Map;
  * @create 2021-01-07 21:45
  */
 public class CartServlet extends BaseServlet {
-
+    BookServiceImpl bookService = new BookServiceImpl();
     protected void updateCount(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         int count = Integer.parseInt(req.getParameter("count"));
@@ -41,6 +41,9 @@ public class CartServlet extends BaseServlet {
         System.out.println("come into deleteItem");
         Cart cart = (Cart) req.getSession().getAttribute("cart");
         cart.deleteItem(id);
+        Book book = bookService.queryBookById(id);
+        book.setStock(book.getStock()-1);
+        bookService.updateBookById(book);
         res.sendRedirect(req.getHeader("Referer"));
     }
     protected void addItem(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -53,7 +56,7 @@ public class CartServlet extends BaseServlet {
             cart = new Cart();
             req.getSession().setAttribute("cart",cart);
         }
-        BookServiceImpl bookService = new BookServiceImpl();
+
         Book book = bookService.queryBookById(id);
 
         CartItem cartItem =new CartItem(id,book.getName(),1,book.getPrice(),book.getPrice().multiply(new BigDecimal(1)));
@@ -61,7 +64,6 @@ public class CartServlet extends BaseServlet {
 
         Map<Integer, CartItem> items = cart.getItems();
         for (Map.Entry<Integer, CartItem> itemEntry : items.entrySet()) {
-
             System.out.println(itemEntry.getKey() + "  "+ itemEntry.getValue());
         }
         // 重定向回原来商品所在的地址页面
