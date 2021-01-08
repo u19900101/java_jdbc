@@ -93,7 +93,7 @@ public class UserServlet extends BaseServlet {
 
     /* 注销*/
     private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.getSession().invalidate();
+        req.getSession().removeAttribute("user");
         res.sendRedirect("index.jsp");
     }
 
@@ -109,6 +109,7 @@ public class UserServlet extends BaseServlet {
             // login succeed
             req.setAttribute("msg","login succeed");
             req.getSession().setAttribute("user",user);
+            req.getSession().setMaxInactiveInterval(60*60*24*7);
             req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req,res);
         }else {
             // failed

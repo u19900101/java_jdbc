@@ -18,6 +18,31 @@ import java.util.Map;
  */
 public class CartServlet extends BaseServlet {
 
+    protected void updateCount(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        int count = Integer.parseInt(req.getParameter("count"));
+        System.out.println("come into updateCount");
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        if(cart.getItems().get(id).getCount()<count){
+            req.getSession().setAttribute("lastAddBook",cart.getItems().get(id).getName());
+        }
+        cart.updateCount(id,count);
+        res.sendRedirect(req.getHeader("Referer"));
+
+    }
+    protected void clearCart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        cart.clear();
+        res.sendRedirect(req.getHeader("Referer"));
+    }
+
+    protected void deleteItem(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        System.out.println("come into deleteItem");
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        cart.deleteItem(id);
+        res.sendRedirect(req.getHeader("Referer"));
+    }
     protected void addItem(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         System.out.println("come into addItem");
@@ -42,6 +67,8 @@ public class CartServlet extends BaseServlet {
         // 重定向回原来商品所在的地址页面
         res.sendRedirect(req.getHeader("Referer"));
         // res.sendRedirect(req.getContextPath()+"/pages/cart/cart.jsp");
+
+        req.getSession().setAttribute("lastAddBook",book.getName());
 
     }
 }
