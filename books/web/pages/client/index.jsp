@@ -23,17 +23,17 @@
             <a href="pages/user/login.jsp">登录</a> |
             <a href="pages/user/register.jsp">注册</a> &nbsp;&nbsp;
         </c:if>
-
-        <%-- 用户已登录 --%>
-        <c:if test="${not empty sessionScope.user}">
-            <span>欢迎<span class="um_span">${sessionScope.user.username}</span>光临尚硅谷书城</span>
             <a href="pages/order/order.jsp">我的订单</a>
             <a href="pages/cart/cart.jsp">购物车</a>
-            <a href="userServlet?action=logout">注销</a>&nbsp;&nbsp;
-            <a href="index.jsp">返回</a>
+
+        <%-- 用户已登录 --%>
+            <c:if test="${not empty sessionScope.user}">
+                <a href="index.jsp">返回</a>
+                <a href="userServlet?action=logout">注销</a>&nbsp;&nbsp;
+                <span>欢迎<span class="um_span">${sessionScope.user.username}</span>光临尚硅谷书城</span>
+            <a href="pages/manage/manage.jsp">后台管理</a>
         </c:if>
 
-        <a href="pages/manage/manage.jsp">后台管理</a>
     </div>
 </div>
 
@@ -83,26 +83,28 @@
                     }
                 });
                 $("button.cartBtn").click(function () {
-                    if(${not empty sessionScope.user}){
-                        var bookId = $(this).attr("bookId");
-                        /**
-                         * 在事件响应的function函数 中，有一个this对象，这个this对象，是当前正在响应事件的dom对象
-                         * @type {jQuery}
-                         */
-                        // alert(bookId);
-                        location.href = "client/cartServlet?action=addItem&id="+bookId;
+
+                    var bookId = $(this).attr("bookId");
+                    /**
+                     * 在事件响应的function函数 中，有一个this对象，这个this对象，是当前正在响应事件的dom对象
+                     * @type {jQuery}
+                     */
+                    // alert(bookId);
+                    location.href = "client/cartServlet?action=addItem&id="+bookId;
                         /*此处不能使用属性进行取值，因为循环后相同属性的很多*/
                         // location.href = "client/cartServlet?action=addItem"+$("#cartBtn").val();
-                    }else {
+
+                    /*不登录也可以加入购物车*/
+                    /*else {
                         alert("请先登录后再加入购物车");
                         location.href = "pages/user/login.jsp";
-                    }
+                    }*/
                 });
             });
         </script>
         <div style="text-align: center">
 
-        <c:if test="${not empty sessionScope.user}">
+
             <c:if test="${empty sessionScope.cart}">
                 <div>
                     <span style="color: red">当前购物车为空</span>
@@ -115,7 +117,6 @@
                     您刚刚将<span style="color: red">${sessionScope.lastAddBook}</span>加入到了购物车中
                 </div>
             </c:if>
-        </c:if>
 
         </div>
         <c:forEach items="${requestScope.page.items}" var="book">
