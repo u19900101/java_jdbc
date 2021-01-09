@@ -20,8 +20,6 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
         String sql ="INSERT INTO t_order(id,create_time,`count`,`totalPrice`,`user_id`) VALUES(?,?,?,?,?)";
         int update = update(conn, sql,order.getId(),order.getCreate_time(),
                 order.getCount(),order.getTotalPrice(),order.getUser_id());
-
-        DBUtils.closeResource(conn);
         if(update>0){
             System.out.println("添加了订单");
         }
@@ -35,8 +33,6 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
         +"VALUES(?,?,?,?,?)";
         int update = update(conn, sql,orderItem.getName(),orderItem.getCount()
         ,orderItem.getPrice(),orderItem.getTotalPrice(),orderItem.getOrder_id());
-
-        DBUtils.closeResource(conn);
         if(update>0){
             System.out.println("添加了订单Item");
         }

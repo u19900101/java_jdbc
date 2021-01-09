@@ -28,7 +28,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         if(update>0){
             System.out.println(" addBook succeed ...");
         }
-        DBUtils.closeResource(conn);
         return update;
     }
 
@@ -41,7 +40,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         if(update>0){
             System.out.println(" updateBookById succeed ...");
         }
-        DBUtils.closeResource(conn);
         return update;
     }
 
@@ -53,7 +51,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         if(update>0){
             System.out.println(" deleteBook succeed ...");
         }
-        DBUtils.closeResource(conn);
         return update;
 
     }
@@ -63,7 +60,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from t_book where id = ?";
         Connection conn = DBUtils.getConn();
         Book book = getInsance(conn, sql, new BeanHandler<>(Book.class), id);
-        DBUtils.closeResource(conn);
         return book;
     }
 
@@ -72,7 +68,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from t_book";
         Connection conn = DBUtils.getConn();
         List<Book> books = getInsanceList(conn, sql, new BeanListHandler<>(Book.class));
-        DBUtils.closeResource(conn);
         return books;
     }
 
@@ -81,7 +76,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select count(*) from t_book";
         Connection conn = DBUtils.getConn();
         long singleValue = (Long) getSingleValue(conn, sql);
-        DBUtils.closeResource(conn);
         return (int) singleValue;
 
     }
@@ -92,7 +86,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select `id` , `name` , `author` , `price` , `sales` , `stock` , `img_path` imgPath from t_book limit ?,?";
         Connection conn = DBUtils.getConn();
         List<Book> books =getInsanceList(conn, sql, new BeanListHandler<>(Book.class),begin,size);
-        DBUtils.closeResource(conn);
         return books;
     }
 
@@ -101,7 +94,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         String sql = "select count(*) from t_book where price between ? and ?";
         Connection conn = DBUtils.getConn();
         long singleValue = (Long) getSingleValue(conn, sql,min,max);
-        DBUtils.closeResource(conn);
         return (int) singleValue;
     }
 
@@ -111,7 +103,6 @@ public class BookDaoImpl extends BaseDao implements BookDao {
                 "t_book where price between ? and ? order by price limit ?,?";
         Connection conn = DBUtils.getConn();
         List<Book> books = getInsanceList(conn, sql, new BeanListHandler<>(Book.class),min,max,begin,size);
-        DBUtils.closeResource(conn);
         return books;
     }
 }

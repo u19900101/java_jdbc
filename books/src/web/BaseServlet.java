@@ -23,6 +23,7 @@ public abstract class BaseServlet extends HttpServlet {
             method.invoke(this,req,res);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 

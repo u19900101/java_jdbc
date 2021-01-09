@@ -20,7 +20,6 @@ public class UserDaoImpl implements UserDao {
         Connection conn = DBUtils.getConn();
         String sql = "select * from t_user where username = ?";
         User insance = baseDao.getInsance(conn, sql, new BeanHandler<>(User.class), name);
-        DBUtils.closeResource(conn);
         return insance;
     }
 
@@ -30,7 +29,6 @@ public class UserDaoImpl implements UserDao {
         Connection conn = DBUtils.getConn();
         String sql = "select * from t_user where username = ? and password = ?";
         User insance = baseDao.getInsance(conn, sql, new BeanHandler<>(User.class), name,password);
-        DBUtils.closeResource(conn);
         return insance;
     }
 
@@ -44,7 +42,6 @@ public class UserDaoImpl implements UserDao {
         if(update>0){
             System.out.println(" 保存成功 ...");
         }
-        DBUtils.closeResource(conn);
         return update;
     }
 }

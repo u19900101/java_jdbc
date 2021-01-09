@@ -16,7 +16,6 @@ public class _1_JDBCTest {
         for (int i = 0; i < 100; i++){
             Connection connection = DBUtils.getConn();
             System.out.println(connection);
-            DBUtils.closeResource(connection);
         }
     }
 }

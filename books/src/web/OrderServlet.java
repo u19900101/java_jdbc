@@ -40,7 +40,7 @@ public class OrderServlet extends BaseServlet {
         // 2.创建订单
         orderService.createOrder(order);
 
-
+        int i = 1/0;
         // 2.创建订单详情
         Map<Integer, CartItem> items = cart.getItems();
         for (CartItem cartItem:items.values()) {
