@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 public class ManageFilter implements Filter {
     public void destroy() {
+        System.out.println("kkkk");
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
