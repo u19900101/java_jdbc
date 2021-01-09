@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h1 style="color: chartreuse"> This is error 500, please wait!!!</h1>
+<h1 style="color: chartreuse"> This is error 404, your request page haven't found!!!</h1>
 <h2><a href="index.jsp"> 返回首页 </a></h2>
 </body>
 </html>
