@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/6_jsp/6_jsp.iml" filepath="$PROJECT_DIR$/6_jsp/6_jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" filepath="$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" />
       <module fileurl="file://$PROJECT_DIR$/8_filter/8_filter.iml" filepath="$PROJECT_DIR$/8_filter/8_filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/9_ThreadLocal/9_ThreadLocal.iml" filepath="$PROJECT_DIR$/9_ThreadLocal/9_ThreadLocal.iml" />
       <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
     </modules>
   </component>
