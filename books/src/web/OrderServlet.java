@@ -39,8 +39,6 @@ public class OrderServlet extends BaseServlet {
         Order order = new Order(id, LocalDateTime.now().toString(),cart.getTotalCount(), cart.getTotalPrice(), user.getId(), CHECKEDRECEIVED);
         // 2.创建订单
         orderService.createOrder(order);
-
-        int i = 1/0;
         // 2.创建订单详情
         Map<Integer, CartItem> items = cart.getItems();
         for (CartItem cartItem:items.values()) {
