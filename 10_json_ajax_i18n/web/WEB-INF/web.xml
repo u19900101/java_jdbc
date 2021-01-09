@@ -5,11 +5,11 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>AjaxServlet</servlet-name>
-        <servlet-class>AjaxServlet</servlet-class>
+        <servlet-name>Servlet.AjaxServlet</servlet-name>
+        <servlet-class>Servlet.AjaxServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AjaxServlet</servlet-name>
+        <servlet-name>Servlet.AjaxServlet</servlet-name>
         <url-pattern>/ajaxServlet</url-pattern>
     </servlet-mapping>
     
