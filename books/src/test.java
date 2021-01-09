@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 public class test {
     @Test
     public void T() throws UnsupportedEncodingException {
-        String s = "解决";
+        String s = "解决kk";
         String encode = URLEncoder.encode(s, "utf-8");
         System.out.println(encode);
 
