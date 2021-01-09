@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/10_json_ajax_i18n/10_json_ajax_i18n.iml" filepath="$PROJECT_DIR$/10_json_ajax_i18n/10_json_ajax_i18n.iml" />
       <module fileurl="file://$PROJECT_DIR$/1_html&amp;css/1_html&amp;css.iml" filepath="$PROJECT_DIR$/1_html&amp;css/1_html&amp;css.iml" />
       <module fileurl="file://$PROJECT_DIR$/2_javaScript/2_javaScript.iml" filepath="$PROJECT_DIR$/2_javaScript/2_javaScript.iml" />
       <module fileurl="file://$PROJECT_DIR$/3_jQuery/3_jQuery.iml" filepath="$PROJECT_DIR$/3_jQuery/3_jQuery.iml" />
