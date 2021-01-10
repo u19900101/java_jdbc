@@ -48,6 +48,7 @@
             </form>
         </div>
         <script type="text/javascript">
+            /* 处理刷新后信息消失的情况 */
             $(function () {
                 // 跳到指定的页码
                 $("#searchPriceBtn").click(function () {
@@ -83,22 +84,26 @@
                     }
                 });
                 $("button.cartBtn").click(function () {
-
-                    var bookId = $(this).attr("bookId");
+                    if(${not empty sessionScope.user}){
+                        var bookId = $(this).attr("bookId");
+                        // console.log(data);
+                        // 使用ajax修改
+                        $.getJSON("client/cartServlet","action=addItem&id="+bookId,function (data) {
+                            $("#totalCount").text(data.totalCount);
+                            $("#lastAddBook").text(data.lastAddBook);
+                        });
+                    }else {
+                        location.href = "pages/user/login.jsp";
+                    }
                     /**
                      * 在事件响应的function函数 中，有一个this对象，这个this对象，是当前正在响应事件的dom对象
                      * @type {jQuery}
                      */
                     // alert(bookId);
-                    location.href = "client/cartServlet?action=addItem&id="+bookId;
+                    // location.href = "client/cartServlet?action=addItem&id="+bookId;
                         /*此处不能使用属性进行取值，因为循环后相同属性的很多*/
                         // location.href = "client/cartServlet?action=addItem"+$("#cartBtn").val();
 
-                    /*不登录也可以加入购物车*/
-                    /*else {
-                        alert("请先登录后再加入购物车");
-                        location.href = "pages/user/login.jsp";
-                    }*/
                 });
             });
         </script>
@@ -107,14 +112,17 @@
 
             <c:if test="${empty sessionScope.cart}">
                 <div>
-                    <span style="color: red">当前购物车为空</span>
+                    <span  style="color: red">当前购物车为空</span>
                 </div>
             </c:if>
 
             <c:if test="${not empty sessionScope.cart}">
-                <span>您的购物车中有${sessionScope.cart.totalCount}件商品</span>
+
                 <div>
-                    您刚刚将<span style="color: red">${sessionScope.lastAddBook}</span>加入到了购物车中
+                    您的购物车中有<span style="color: red" id="totalCount"><%--防止刷新时数据为空--%>${sessionScope.totalCount}</span>件商品
+                </div>
+                <div>
+                    您刚刚将<span style="color: red" id="lastAddBook">${sessionScope.lastAddBook}</span>加入到了购物车中
                 </div>
             </c:if>
 

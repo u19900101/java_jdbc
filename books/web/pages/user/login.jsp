@@ -28,7 +28,7 @@
 						<div class="login_box">
 							<div class="tit">
 								<h1>尚硅谷会员</h1>
-								<a href="pages/user/regist.jsp">立即注册</a>
+								<a href="pages/user/register.jsp">立即注册</a>
 							</div>
 							<div class="msg_cont">
 								<b></b>

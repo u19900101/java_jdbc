@@ -1,5 +1,6 @@
 package web;
 
+import com.google.gson.Gson;
 import pojo.Book;
 import pojo.Cart;
 import pojo.CartItem;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -67,10 +69,14 @@ public class CartServlet extends BaseServlet {
             System.out.println(itemEntry.getKey() + "  "+ itemEntry.getValue());
         }
         // 重定向回原来商品所在的地址页面
-        res.sendRedirect(req.getHeader("Referer"));
-        // res.sendRedirect(req.getContextPath()+"/pages/cart/cart.jsp");
-
+        // res.sendRedirect(req.getHeader("Referer"));
+        req.getSession().setAttribute("totalCount",cart.getTotalCount());
         req.getSession().setAttribute("lastAddBook",book.getName());
 
+        // 使用ajax进行 简化
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("totalCount", cart.getTotalCount());
+        map.put("lastAddBook",book.getName());
+        res.getWriter().write(new Gson().toJson(map));
     }
 }
