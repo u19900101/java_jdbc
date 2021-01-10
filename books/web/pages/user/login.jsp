@@ -9,8 +9,21 @@
 
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
-
-
+    <script type="text/javascript">
+        /* 出于安全考虑 此功能还是算了吧，哈哈哈*/
+        $(function () {
+            $("#username").bind("input propertychange",function(event){
+                var username = this.value;
+                $.getJSON("userServlet?action=ajaxexistUsername","&username="+username,function (data) {
+                    if(!data.existUsername){
+                        $("span.errorMsg").text("用户名还未匹配上，请继续输入");
+                    }else {
+                        $("span.errorMsg").text("用户名已匹配上，请继续密码");
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 		<div id="login_header">
@@ -42,20 +55,8 @@
 									<label>用户名称：</label>
 									<input class="itxt" type="text" placeholder="请输入用户名"
 										   autocomplete="off" tabindex="1" name="username"
-										   value="${requestScope.username}" />
-									<%--想在框里输入中文 测试未果--%>
-									<%--<% String s = (String) request.getAttribute("username");
-										String encode = URLEncoder.encode(s, "UTF-8");
-									%>
-									<hr>
-									<%= s%>
-									<%= encode%>
-									<hr>
-									<%= URLDecoder.decode(encode, "GBK")%>--%>
-
-									<%--
-									<%= URLDecoder.decode((String) request.getAttribute("username"), "UTF-8")%>
-									--%>
+										   value="${requestScope.username}" id="username"
+                                    />
 									<br />
 									<br />
 									<label>用户密码：</label>
