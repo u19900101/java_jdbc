@@ -90,8 +90,9 @@
 					// this.src = "kaptchaServlet.jpg?"+new Date();
 					this.src = "kaptchaServlet.jpg";
 				});
-			//	使用ajax给用户名及时返回信息
-				$("#username").blur(function () {
+				// 使用ajax给用户名 实时 返回信息
+
+				$("#username").bind("input propertychange",function(event){
 					var username = this.value;
 					$.getJSON("userServlet?action=ajaxexistUsername","&username="+username,function (data) {
 						if(data.existUsername){
