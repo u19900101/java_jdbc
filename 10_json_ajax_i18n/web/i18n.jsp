@@ -17,6 +17,7 @@
 		Locale locale = null;
 
 		String country = request.getParameter("country");
+		// request.setAttribute("country", "r_country");
 		if ("cn".equals(country)) {
 			locale = Locale.CHINA;
 		} else if ("usa".equals(country)) {
@@ -29,10 +30,15 @@
 		// 获取读取包（根据 指定的baseName和Locale读取 语言信息）
 		ResourceBundle i18n = ResourceBundle.getBundle("i18n", locale);
 	%>
+	<hr>
+	<h1><%= request.getParameter("country")%></h1>
+	<h1>${param.country}</h1>
+	<h1>${requestScope.country}</h1>
+	<hr>
 	<a href="i18n.jsp?country=cn">中文</a>|
 	<a href="i18n.jsp?country=usa">english</a>
 	<center>
-		<h1><%=i18n.getString("regist")%></h1>
+		<h1><%=i18n.getString("register")%></h1>
 		<table>
 		<form>
 			<tr>
