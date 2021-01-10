@@ -89,6 +89,17 @@
 					// alert(this.src);
 					// this.src = "kaptchaServlet.jpg?"+new Date();
 					this.src = "kaptchaServlet.jpg";
+				});
+			//	使用ajax给用户名及时返回信息
+				$("#username").blur(function () {
+					var username = this.value;
+					$.getJSON("userServlet?action=ajaxexistUsername","&username="+username,function (data) {
+						if(data.existUsername){
+							$("span.errorMsg").text("用户名已存在，请重新输入");
+						}else {
+							$("span.errorMsg").text("用户名可用");
+						}
+					});
 				})
 			});
 

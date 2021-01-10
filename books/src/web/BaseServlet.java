@@ -15,7 +15,7 @@ public abstract class BaseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         // System.out.println("come into BaseServlet do post...");
         req.setCharacterEncoding("UTF-8");
-        res.setContentType("text/html;charset=UFT-8");
+        res.setContentType("text/html;charset=UTF-8");
         String action = req.getParameter("action");
         // 利用反射改写
         Method method = null;
