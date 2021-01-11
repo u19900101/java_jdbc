@@ -9,7 +9,6 @@ import java.io.IOException;
  * @author lppppp
  * @create 2020-12-31 10:05
  */
-@WebServlet(name = "_6_ServletDispatcher2")
 public class _6_ServletDispatcher2 extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

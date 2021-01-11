@@ -11,6 +11,11 @@
           <element id="library" level="project" name="Maven: Arquillian JUnit:Release" />
           <element id="library" level="module" name="JUnit4" module-name="books" />
           <element id="library" level="project" name="commons-beanutils-1.8.0" />
+          <element id="library" level="module" name="commons-dbcp-1.4" module-name="books" />
+          <element id="library" level="module" name="taglibs-standard-impl-1.2.1" module-name="books" />
+          <element id="file-copy" path="$PROJECT_DIR$/books/web/WEB-INF/lib/kaptcha-2.3.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/books/web/WEB-INF/lib/commons-beanutils-1.8.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/books/web/WEB-INF/lib/gson-2.2.4.jar" />
         </element>
       </element>
     </root>

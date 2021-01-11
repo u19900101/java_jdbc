@@ -16,7 +16,6 @@ public class _3_ServletContext extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        ServletContext servletContext = getServletConfig().getServletContext();
         ServletContext servletContext = getServletContext();
         String username = servletContext.getInitParameter("username");
         System.out.println(username);
@@ -27,7 +26,6 @@ public class _3_ServletContext extends HttpServlet {
         String realPath = servletContext.getRealPath("/");
         // D:\MyJava\4_javaweb\out\artifacts\5_web_war_exploded\
         System.out.println(realPath);
-
         //获取全局变量
         Object key = servletContext.getAttribute("key");
         System.out.println(key);

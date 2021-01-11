@@ -7,6 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="10_json_ajax_i18n" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="gson-2.2.4" module-name="10_json_ajax_i18n" />
+        </element>
       </element>
     </root>
   </artifact>

@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>2_httpServlet</servlet-name>
-        <servlet-class>_2_httpServlet</servlet-class>
+        <servlet-class>_2_ServletConfig</servlet-class>
         <init-param>
             <param-name>username</param-name>
             <param-value>root</param-value>

@@ -1,16 +1,6 @@
 <component name="libraryTable">
   <library name="commons-beanutils-1.8.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/commons-beanutils-1.8.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/commons-dbutils-1.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/commons-logging-1.1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/druid-1.1.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/gson-2.2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/hamcrest-core-1.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/junit-4.12.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/kaptcha-2.3.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/5_web/web/lib/mysql-connector-java-5.1.7-bin.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

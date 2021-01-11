@@ -35,6 +35,7 @@ public class _5_requestAPIServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         showinfo(req);
+        req.getRequestDispatcher(req.getHeader("refer"));
     }
 
     //解决doPost 中文乱码问题
@@ -42,6 +43,8 @@ public class _5_requestAPIServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         showinfo(req);
+        resp.sendRedirect(req.getHeader("Referer"));
+        System.out.println(req.getHeader("Referer"));
     }
 
     public void showinfo(HttpServletRequest req){
@@ -52,6 +55,7 @@ public class _5_requestAPIServlet extends HttpServlet {
         String[] hobbies = req.getParameterValues("hobby");
         System.out.println(name);
         System.out.println(password);
-        System.out.println(Arrays.asList(hobbies));
+        /*System.out.println(Arrays.asList(hobbies));*/
+
     }
 }

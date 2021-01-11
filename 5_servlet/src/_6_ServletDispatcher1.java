@@ -16,11 +16,10 @@ import java.io.PrintWriter;
  * 2.解决中文乱码问题
  * 3.演示请求转发
  */
-@WebServlet(name = "_6_ServletDispatcher1")
 public class _6_ServletDispatcher1 extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("come into 111111111111111111 ...");
+        System.out.println("come into _6_ServletDispatcher1 ...");
         System.out.println( response.getCharacterEncoding() );//默认ISO-8859-1
 
         /*方法1 */
@@ -32,6 +31,7 @@ public class _6_ServletDispatcher1 extends HttpServlet {
         /*方法2 */
         // 它会同时设置服务器和客户端都使用UTF-8字符集，还设置了响应头
         // 此方法一定要在获取流对象之前调用才有效
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
 //        System.out.println( resp.getCharacterEncoding() );
@@ -45,13 +45,12 @@ public class _6_ServletDispatcher1 extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("balance",10000);
         System.out.println(name);
-        //RequestDispatcher requestDispatcher = request.getRequestDispatcher("/_6_ServletDispatcher2");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/_6_ServletDispatcher2");
         // 演示访问 web-inf下的信息
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/b.html");
+        // RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/b.html");
 
         // 演示 无法访问别的工程文件 默认为http://localhost:8080/5_web + 跳转地址
         //RequestDispatcher requestDispatcher = request.getRequestDispatcher("http://localhost:8080/4_web/");
-
         requestDispatcher.forward(request,response);
     }
 }
