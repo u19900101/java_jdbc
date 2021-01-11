@@ -82,7 +82,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>_6_ServletDispatcher1</servlet-name>
-        <url-pattern>/h6</url-pattern>
+        <url-pattern>/h6666</url-pattern>
     </servlet-mapping>
 
 
