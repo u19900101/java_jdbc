@@ -17,11 +17,12 @@ public class printServlet extends HttpServlet {
         String html = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta charset=\"GBK\">\n" +
                 "    <title>Goodbye 2020</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "<h1> Hello 2021 </h1>\n" +
+                "<h1> 你好 2021 </h1>\n" +
                 "</body>\n" +
                 "</html>";
         writer.write(html);
