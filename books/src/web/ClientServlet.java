@@ -16,7 +16,7 @@ import java.io.IOException;
  * @create 2021-01-06 10:47
  */
 public class ClientServlet extends BaseServlet {
-    BookServiceImpl bookService = new BookServiceImpl();
+    BookServiceImpl bookService = BookServlet.getService();
     protected void page(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("come into ClientServlet...");
         int pageNo = WebUtils.parseInt(req.getParameter("pageNo"),1);

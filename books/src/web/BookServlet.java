@@ -1,8 +1,14 @@
 package web;
 
+import config.TxConfig;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pojo.Book;
 import pojo.Page;
+import service.UserService;
 import service.impl.BookServiceImpl;
+import service.impl.UserServiceImpl;
 import utils.WebUtils;
 
 import javax.servlet.ServletException;
@@ -16,7 +22,7 @@ import java.util.List;
  * @create 2021-01-04 13:37
  */
 public class BookServlet extends BaseServlet {
-    BookServiceImpl bookService = new BookServiceImpl();
+    BookServiceImpl bookService = getService();
 
     protected void list(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Book> books = bookService.queryBooks();
@@ -79,5 +85,16 @@ public class BookServlet extends BaseServlet {
         page.setUrl("manage/bookServlet?action=page");
         req.setAttribute("page", page);
         req.getRequestDispatcher("/pages/manage/book_manage.jsp").forward(req,res);
+    }
+
+    public static BookServiceImpl getService(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
+        BookServiceImpl bookService = context.getBean("bookServiceImpl", BookServiceImpl.class);
+        return bookService;
+    }
+
+    @Test
+    public void T(){
+        System.out.println(bookService.getPageListByPrice(1,50, 5));
     }
 }

@@ -1,5 +1,8 @@
 package service;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pojo.User;
 
 /**
@@ -7,7 +10,7 @@ import pojo.User;
  * @create 2020-12-31 19:56
  */
 public interface UserService {
-    public boolean register(User user);
-    public User login(User user);
-    public boolean existUsername(String username);
+    boolean register(User user);
+    User login(User user);
+    boolean existUsername(String username);
 }

@@ -1,6 +1,9 @@
 package service.impl;
 
+import dao.BookDao;
 import dao.impl.BookDaoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pojo.Book;
 import pojo.Page;
 import service.BookService;
@@ -12,8 +15,10 @@ import static pojo.Page.PAGE_SIZE;
  * @author lppppp
  * @create 2021-01-04 11:19
  */
+@Service
 public class BookServiceImpl implements BookService {
-    BookDaoImpl bookDao = new BookDaoImpl();
+    @Autowired
+    BookDao bookDao;
     @Override
     public int addBook(Book book) {
         return bookDao.addBook(book);
@@ -98,7 +103,7 @@ public class BookServiceImpl implements BookService {
         return bookPage;
     }
 
-    private int getCountByPrice(int min, int max) {
+    public int getCountByPrice(int min, int max) {
         return bookDao.getCountByPrice(min,max);
     }
 }

@@ -7,7 +7,7 @@ import pojo.User;
  * @create 2020-12-31 19:30
  */
 public interface UserDao {
-    public User getUserByName(String name);
-    public User getUserByNameAndPass(String name,String password);
-    public int saveUser(User user);
+    User getUserByName(String name);
+    User getUserByNameAndPass(String name,String password);
+    int saveUser(User user);
 }

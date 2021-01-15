@@ -9,7 +9,7 @@
 
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
         /* 出于安全考虑 此功能还是算了吧，哈哈哈*/
         $(function () {
             $("#username").bind("input propertychange",function(event){
@@ -23,7 +23,7 @@
                 });
             });
         });
-    </script>
+    </script>--%>
 </head>
 <body>
 		<div id="login_header">

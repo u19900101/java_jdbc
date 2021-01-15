@@ -1,5 +1,8 @@
 package web;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

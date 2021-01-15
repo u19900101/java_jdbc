@@ -1,6 +1,10 @@
 package web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pojo.User;
+import service.UserService;
 import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -15,8 +19,10 @@ import java.net.URLEncoder;
  * @author lppppp
  * @create 2021-01-01 8:53
  */
+@Component
 public class loginServlet extends HttpServlet {
-    UserServiceImpl userService = new UserServiceImpl();
+    @Autowired
+    UserService userService;
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
