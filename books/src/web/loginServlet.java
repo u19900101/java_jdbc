@@ -33,5 +33,6 @@ public class loginServlet extends HttpServlet {
             req.setAttribute("password",password);
             req.getRequestDispatcher("/pages/user/login.jsp").forward(req,res);
         }
+        System.out.println("test");
     }
 }
