@@ -51,34 +51,35 @@ public class CartServlet extends BaseServlet {
         res.sendRedirect(req.getHeader("Referer"));
     }
     protected void addItem(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
         System.out.println("come into addItem");
+        int id = Integer.parseInt(req.getParameter("id"));
+        Book book = bookService.queryBookById(id);
+
+        CartItem cartItem =new CartItem(id,book.getName(),1,book.getPrice(),book.getPrice().multiply(new BigDecimal(1)));
         Cart cart = (Cart) req.getSession().getAttribute("cart");
+        boolean flag = false;
         // 判断是否有购物车
         // 无购物车则创建
         if(cart== null){
             cart = new Cart();
             req.getSession().setAttribute("cart",cart);
+            flag = true;
         }
-
-        Book book = bookService.queryBookById(id);
-
-        CartItem cartItem =new CartItem(id,book.getName(),1,book.getPrice(),book.getPrice().multiply(new BigDecimal(1)));
         cart.addItem(cartItem);
+        req.getSession().setAttribute("totalCount",cart.getTotalCount());
+        req.getSession().setAttribute("lastAddBook",book.getName());
 
         Map<Integer, CartItem> items = cart.getItems();
         for (Map.Entry<Integer, CartItem> itemEntry : items.entrySet()) {
             System.out.println(itemEntry.getKey() + "  "+ itemEntry.getValue());
         }
-        // 重定向回原来商品所在的地址页面
-        // res.sendRedirect(req.getHeader("Referer"));
-        req.getSession().setAttribute("totalCount",cart.getTotalCount());
-        req.getSession().setAttribute("lastAddBook",book.getName());
-
         // 使用ajax进行 简化
         HashMap<String, Object> map = new HashMap<>();
         map.put("totalCount", cart.getTotalCount());
         map.put("lastAddBook",book.getName());
+        // 判断是否是第一次加入购物车
+        map.put("createCart", flag);
         res.getWriter().write(new Gson().toJson(map));
+
     }
 }

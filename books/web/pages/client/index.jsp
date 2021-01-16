@@ -91,6 +91,10 @@
                         $.getJSON("client/cartServlet","action=addItem&id="+bookId,function (data) {
                             $("#totalCount").text(data.totalCount);
                             $("#lastAddBook").text(data.lastAddBook);
+                            // 首次添加商品则进行刷新操作
+                            if(data.createCart){
+                                location.href = "client/bookServlet?action=page";
+                            }
                         });
                     }else {
                         location.href = "pages/user/login.jsp";
@@ -108,8 +112,6 @@
             });
         </script>
         <div style="text-align: center">
-
-
             <c:if test="${empty sessionScope.cart}">
                 <div>
                     <span  style="color: red">当前购物车为空</span>
@@ -125,7 +127,6 @@
                     您刚刚将<span style="color: red" id="lastAddBook">${sessionScope.lastAddBook}</span>加入到了购物车中
                 </div>
             </c:if>
-
         </div>
         <c:forEach items="${requestScope.page.items}" var="book">
             <div class="b_list">
