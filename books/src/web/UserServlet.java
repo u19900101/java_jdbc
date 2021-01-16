@@ -93,6 +93,8 @@ public class UserServlet extends BaseServlet {
     }
     private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.getSession().removeAttribute("user");
+        //还要清空购物车session
+        req.getSession().removeAttribute("cart");
         res.sendRedirect("index.jsp");
     }
     private void login(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

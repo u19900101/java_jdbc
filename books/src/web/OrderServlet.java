@@ -1,9 +1,14 @@
 package web;
 
+import config.TxConfig;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pojo.*;
+import service.UserService;
 import service.impl.BookServiceImpl;
 import service.impl.OrderServiceImpl;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +22,22 @@ import java.time.ZonedDateTime;
 import java.util.Map;
 
 import static pojo.Status.CHECKEDRECEIVED;
+import static web.BookServlet.getService;
 
 /**
  * @author lppppp
  * @create 2021-01-08 15:07
  */
 public class OrderServlet extends BaseServlet {
-    OrderServiceImpl orderService = new OrderServiceImpl();
-    BookServiceImpl bookService = new BookServiceImpl();
+    OrderServiceImpl orderService = getOrderService();
+
+    private OrderServiceImpl getOrderService() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
+        OrderServiceImpl orderService = context.getBean("orderServiceImpl", OrderServiceImpl.class);
+        return orderService;
+    }
+
+    BookServiceImpl bookService = getService();
     protected void createOrder(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         // 1.将购物车里的东西转化为orderItem 以及 order
         Cart cart = (Cart)req.getSession().getAttribute("cart");
@@ -55,9 +68,6 @@ public class OrderServlet extends BaseServlet {
         req.getSession().removeAttribute("cart");
 
         res.sendRedirect(req.getContextPath()+"/pages/cart/checkout.jsp");
-
-
-
     }
 
 }
