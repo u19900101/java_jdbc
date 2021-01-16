@@ -22,7 +22,7 @@ import java.util.List;
  * @create 2021-01-04 13:37
  */
 public class BookServlet extends BaseServlet {
-    BookServiceImpl bookService = getService();
+    BookServiceImpl bookService = getBookService();
 
     protected void list(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Book> books = bookService.queryBooks();
@@ -87,7 +87,7 @@ public class BookServlet extends BaseServlet {
         req.getRequestDispatcher("/pages/manage/book_manage.jsp").forward(req,res);
     }
 
-    public static BookServiceImpl getService(){
+    public static BookServiceImpl getBookService(){
         ApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
         BookServiceImpl bookService = context.getBean("bookServiceImpl", BookServiceImpl.class);
         return bookService;

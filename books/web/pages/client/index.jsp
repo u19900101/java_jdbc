@@ -54,8 +54,8 @@
                 $("#searchPriceBtn").click(function () {
                     var min = $("#min").val();
                     var max = $("#max").val();
-                    alert(min);
-                    alert(max);
+                    // alert(min);
+                    // alert(max);
                     if(""==min){
                         min = 0;
                     }

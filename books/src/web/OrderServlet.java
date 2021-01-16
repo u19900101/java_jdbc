@@ -22,7 +22,6 @@ import java.time.ZonedDateTime;
 import java.util.Map;
 
 import static pojo.Status.CHECKEDRECEIVED;
-import static web.BookServlet.getService;
 
 /**
  * @author lppppp
@@ -37,7 +36,7 @@ public class OrderServlet extends BaseServlet {
         return orderService;
     }
 
-    BookServiceImpl bookService = getService();
+    BookServiceImpl bookService = BookServlet.getBookService();
     protected void createOrder(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         // 1.将购物车里的东西转化为orderItem 以及 order
         Cart cart = (Cart)req.getSession().getAttribute("cart");

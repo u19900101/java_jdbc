@@ -14,14 +14,14 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import static web.BookServlet.getService;
+import static web.BookServlet.getBookService;
 
 /**
  * @author lppppp
  * @create 2021-01-07 21:45
  */
 public class CartServlet extends BaseServlet {
-    BookServiceImpl bookService =  getService();
+    BookServiceImpl bookService =  getBookService();
     protected void updateCount(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         int count = Integer.parseInt(req.getParameter("count"));
