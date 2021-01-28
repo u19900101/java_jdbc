@@ -4,7 +4,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -32,7 +31,7 @@ public class TxConfig {
         Properties pros = new Properties(); //建立一个映射的properties类
         InputStream in=null;
         try {
-            in = new BufferedInputStream(new FileInputStream("D:\\MyJava\\4_javaweb\\books\\src\\druid.properties"));//根据文件获取流
+            in = new BufferedInputStream(new FileInputStream("D:\\MyJava\\4_javaweb\\book\\src\\druid.properties"));//根据文件获取流
             pros.load(in);//加载流
             String driverClassName = pros.getProperty("driverClassName");
             String url = pros.getProperty("url");

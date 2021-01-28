@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/10_json_ajax_i18n/10_json_ajax_i18n.iml" filepath="$PROJECT_DIR$/10_json_ajax_i18n/10_json_ajax_i18n.iml" />
-      <module fileurl="file://$PROJECT_DIR$/1_html&amp;css/1_html&amp;css.iml" filepath="$PROJECT_DIR$/1_html&amp;css/1_html&amp;css.iml" />
-      <module fileurl="file://$PROJECT_DIR$/2_javaScript/2_javaScript.iml" filepath="$PROJECT_DIR$/2_javaScript/2_javaScript.iml" />
-      <module fileurl="file://$PROJECT_DIR$/3_jQuery/3_jQuery.iml" filepath="$PROJECT_DIR$/3_jQuery/3_jQuery.iml" />
-      <module fileurl="file://$PROJECT_DIR$/4_javaweb.iml" filepath="$PROJECT_DIR$/4_javaweb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/4_xml/4_xml.iml" filepath="$PROJECT_DIR$/4_xml/4_xml.iml" />
-      <module fileurl="file://$PROJECT_DIR$/5_servlet/5_servlet.iml" filepath="$PROJECT_DIR$/5_servlet/5_servlet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/6_jsp/6_jsp.iml" filepath="$PROJECT_DIR$/6_jsp/6_jsp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" filepath="$PROJECT_DIR$/7_cookie_and_session/7_cookie_and_session.iml" />
-      <module fileurl="file://$PROJECT_DIR$/8_filter/8_filter.iml" filepath="$PROJECT_DIR$/8_filter/8_filter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/9_ThreadLocal/9_ThreadLocal.iml" filepath="$PROJECT_DIR$/9_ThreadLocal/9_ThreadLocal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/4_javaweb.iml" filepath="$PROJECT_DIR$/.idea/4_javaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/book/book.iml" filepath="$PROJECT_DIR$/book/book.iml" />
     </modules>
   </component>
 </project>
